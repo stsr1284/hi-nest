@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Movie } from './movies/entities/movie.entity';
-import { MoviesModule } from './movies/movies.module';
+import { User } from './users/entities/user.entity';
 import { ConfigModule } from '@nestjs/config';
-import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -18,11 +17,12 @@ import { UsersModule } from './users/users.module';
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_DATABASE,
-      entities: [Movie],
+      entities: [User],
       synchronize: true,
     }),
-    AuthModule,
-    MoviesModule,
+    UsersModule,
+    // AuthModule,
+
   ],
   controllers: [],
   providers: [],

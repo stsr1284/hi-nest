@@ -2,20 +2,17 @@ import {
 	Entity,
 	PrimaryGeneratedColumn,
 	Column,
+	Unique,
 } from "typeorm";
 
 @Entity()
-export class Movie {
+@Unique(['s_id'])
+export class User {
 
 	@PrimaryGeneratedColumn()
 	id: number;
 
 	@Column()
 	s_id: string;
-
-	@Column()
-	year: number;
-
-	@Column()
-	genres: string;
+	
 }

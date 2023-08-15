@@ -3,10 +3,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Movie } from './movies/entities/movie.entity';
 import { MoviesModule } from './movies/movies.module';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
-    MoviesModule,
     ConfigModule.forRoot({
       envFilePath: ['.develop.env'],
     }),
@@ -20,6 +21,7 @@ import { ConfigModule } from '@nestjs/config';
       entities: [Movie],
       synchronize: true,
     }),
+    AuthModule,
     MoviesModule,
   ],
   controllers: [],

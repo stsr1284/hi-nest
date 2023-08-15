@@ -1,6 +1,7 @@
-import { Controller, Get, Param, Post, Delete, Patch, Put, Body, Query } from '@nestjs/common';
+import { Controller, Get, Param, Post, Delete, Patch, Put, Body, Query, UseGuards } from '@nestjs/common';
 import { MoviesService } from './movies.service';
 import { Movie } from './entities/movie.entity';
+import { JwtAuthGuard } from 'src/auth/jwt/jwt.guard';
 
 @Controller('movies')
 export class MoviesController {
@@ -37,6 +38,11 @@ constructor(private readonly moviesService: MoviesService) {}
 		return this.moviesService.update(movieId, updateData);
 	}
 
-
+	@UseGuards(JwtAuthGuard)
+	@Get('/auth/hello')
+	async jwtCheck(@Body() token) {
+		return `good: 
+		${token}`;
+	}
 
 }

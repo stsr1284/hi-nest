@@ -37,8 +37,4 @@ export class MoviesService {
 		return intId;
 	}
 
-		// this.movies.push({
-		// 	id: this.movies.length + 1,
-		// 	...movieData
-		// })
 }

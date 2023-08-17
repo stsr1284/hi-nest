@@ -15,27 +15,10 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 		})
 	}
 	async validate(payload: Payload): Promise<any> {
-		console.log("validat-s_id: ", payload);
 		const { s_id } = payload;
 		const user = await this.usersRepository.getOne(s_id);
 		if (!user)
-		{
 			throw new UnauthorizedException();
-		}
 		return user;
 	}
 }
-// 	async validate(payload: Payload, done: VerifiedCallback): Promise<any> {
-// 		console.log("validate start");
-// 		const user = await this.usersRepository.getOne(payload.id);
-// 		console.log(user);
-// 		if (!user)
-// 		{
-// 			return done(new UnauthorizedException(
-// 				{message: 'user does not exist '}),
-// 				false,
-// 			)
-// 		}
-// 		return done(null, user);
-// 	}
-// }

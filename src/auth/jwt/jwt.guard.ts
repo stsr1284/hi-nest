@@ -26,5 +26,21 @@ import { JwtService } from '@nestjs/jwt';
       return type === 'Bearer' ? token : undefined;
     }
   
+    // const {
+    //   accessToken,
+    //   accessTokenExpiresAt,
+    //   refreshToken,
+    //   refreshTokenExpiresAt,
+    // } = result;
+    // const id = await getKakaoProfile();
+    // console.log("profile: ", id);
+    //   const response = await api.post('http://localhost:3000/auth/signin', { s_id: "react_test" });
+    //   const serverToken = JSON.parse(response.request._response).accessToken;
+    //   const headers = {
+    //     Authorization: `Bearer ${serverToken}`,
+    //   };
+    //   console.log("headers: ", headers);
+    //   const user = await api.post('http://localhost:3000/auth/test', headers);
+      
   }
   

@@ -18,9 +18,8 @@ export class AuthService {
 	}
 
 	async signIn(authcredentialsdto: AuthCredentialsDto): Promise<{ accessToken: string }> {
-		const { s_id } = authcredentialsdto;
+		const { s_id }  = authcredentialsdto;
 		const user = await this.userRepository.getOne(s_id);
-		console.log("signIn: ", user);
 		if (!user) {
 			console.log("signIn: go signUp!!");
 			this.signUp(authcredentialsdto);
